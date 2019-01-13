@@ -14,7 +14,9 @@ public class StudentService {
 	@Autowired
 	private StudentRepository repository;
 
+//	@Cacheable("student")
 	public void getStudent() {
+		System.out.println("service called");
 		List<Student> q = repository.jdbcTemplate.query("select * from spring.\"Student\"", new RowMapper<Student>() {
 			
 			@Override
