@@ -1,11 +1,6 @@
 package com.sample.spring.database;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,20 +9,20 @@ public class StudentService {
 	@Autowired
 	private StudentRepository repository;
 
-//	@Cacheable("student")
-	public void getStudent() {
-		System.out.println("service called");
-		List<Student> q = repository.jdbcTemplate.query("select * from spring.\"Student\"", new RowMapper<Student>() {
-			
-			@Override
-			public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Student s = new Student();
-				s.setName(rs.getString("name"));
-				s.setAge(rs.getInt("age"));
-				return s;
-			}
-		});
-		
-		System.out.println(q.get(0).getName());
+	public void getAllStudent() {
+		repository.getStudent();
+	}
+
+	public void saveStudentandCourse(Student s, Course c) {
+		// TODO Auto-generated method stub
+		repository.saveStudentAndCourse(s,c);
+	}
+	
+	public void saveStudentAndCourseInProgrammaticTransaction(Student s, Course c){
+		repository.saveStudentAndCourseInProgrammaticTransaction(s, c);
+	}
+
+	public void saveStudentAndCourseInProgrammaticTransaction2(Student s, Course c){
+		repository.saveStudentAndCourseInProgrammaticTransaction2(s, c);
 	}
 }

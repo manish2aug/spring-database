@@ -1,0 +1,12 @@
+/.apt_generated/
+/target
+/.settings/
+/.classpath
+/.factorypath
+/.project
+/bin/
+.DS_Store
+cif-eta-web/.DS_Store
+Jenkinsfile.prod
+Jenkinsfile.prod.*
+.idea
